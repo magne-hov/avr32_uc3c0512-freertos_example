@@ -65,7 +65,7 @@ TARGET = FREERTOS_UC3_EXAMPLE1.elf #CHANGED
 #   EXT_BOARD         Extension board used (if any): {EXTxxxx}
 DEFS = -D BOARD=UC3C_EK # CHANGED
 
-CFLAGS = $(DEFS)
+CFLAGS = $(DEFS) -D __AT32UC3C0512C__ # CHANGED
 
 # Include path
 INC_PATH = \
@@ -90,7 +90,7 @@ INC_PATH = \
   $(COMMON_PATH)/utils/interrupt/ \
   $(FREERTOS_PATH)/freertos-7.0.0/source/include/ \
   $(FREERTOS_PATH)/freertos-7.0.0/source/portable/gcc/avr32_uc3/ \
-  $(FREERTOS_PATH)/demo/avr32_uc3_example/at32uc3c0512c_uc3/ \
+  $(FREERTOS_PATH)/demo/avr32_uc3_example/at32uc3c0512c_uc3c_ek/ \
   $(FREERTOS_PATH)/demo/avr32_uc3_example/ \
   $(FREERTOS_PATH)/demo/common/include/
 
