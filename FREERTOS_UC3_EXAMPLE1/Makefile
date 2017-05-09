@@ -260,7 +260,8 @@ cppflags-gnu-y  += $(foreach INC,$(INC_PATH),-I$(INC))
 asflags-gnu-y   += $(foreach INC,$(INC_PATH),'-Wa,-I$(INC)')
 
 # CPU specific flags.
-cpuflags-gnu-y  += -march=$(ARCH) -mpart=$(PART)
+#cpuflags-gnu-y  += -march=$(ARCH) -mpart=$(PART)
+cpuflags-gnu-y  += -mpart=$(PART) # CHANGED
 
 # Dependency file flags.
 depflags        = -MD -MP -MQ $@

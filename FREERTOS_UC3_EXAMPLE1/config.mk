@@ -41,10 +41,11 @@ ASF_DRIVER_PATH = $(AVR32_PATH)/drivers
 
 
 # CPU architecture: {ap|uc}
-ARCH = ucr1
+#ARCH = ucr1
+ARCH =
 
 # Part: {none|ap7xxx|uc3xxxxx}
-PART = uc3c0512crevc #CHANGED
+PART = uc3c0512c #CHANGED
 
 # Flash memories: [{cfi|internal}@address,size]...
 FLASH = internal@0x80000000,512Kb
@@ -57,7 +58,7 @@ PROG_CLOCK = xtal
 #  $(BRDS_PATH)/
 
 # Target name: {*.a|*.elf}
-TARGET = FREERTOS_UC3_EXAMPLE1.elf #CHANGED
+TARGET = obc_uc3c.elf #CHANGED
 
 # Definitions: [-D name[=definition]...] [-U name...]
 # Things that might be added to DEFS:
@@ -65,7 +66,7 @@ TARGET = FREERTOS_UC3_EXAMPLE1.elf #CHANGED
 #   EXT_BOARD         Extension board used (if any): {EXTxxxx}
 DEFS = -D BOARD=UC3C_EK # CHANGED
 
-CFLAGS = $(DEFS) -D __AT32UC3C0512C__ # CHANGED
+CFLAGS = $(DEFS) -D __AT32UC3C0512C__ -D __AT32UC3C0512CREVC__ 
 
 # Include path
 INC_PATH = \
@@ -92,8 +93,9 @@ INC_PATH = \
   $(FREERTOS_PATH)/freertos-7.0.0/source/portable/gcc/avr32_uc3/ \
   $(FREERTOS_PATH)/demo/avr32_uc3_example/at32uc3c0512c_uc3c_ek/ \
   $(FREERTOS_PATH)/demo/avr32_uc3_example/ \
-  $(FREERTOS_PATH)/demo/common/include/
-
+  $(FREERTOS_PATH)/demo/common/include/ \
+  inc/
+  
 # C source files
 CSRCS = \
   $(FREERTOS_PATH)/demo/avr32_uc3_example/main.c \
